@@ -1,0 +1,21 @@
+{
+  "name": "homebridge-minimal-http-lightbulb-brightness",
+  "description": "Minimalistic HTTP lightbulb-brightness management *that supports brightness percentages* for diy-ish projects.",
+  "version": "0.0.15",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Nicnl/homebridge-minimal-http-lightbulb-brightness.git"
+  },
+  "license": "ISC",
+  "keywords": [
+    "homebridge-plugin"
+  ],
+  "engines": {
+    "node": ">=0.12.0",
+    "homebridge": ">=0.2.5"
+  },
+  "dependencies": {
+    "request": "^2.81.0"
+  }
+}
+
