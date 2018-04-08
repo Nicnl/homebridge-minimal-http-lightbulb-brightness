@@ -129,7 +129,7 @@ Please note that is passed **directly in the URL**. (It's the `%brightness%` pla
 
 ________________________________________
 
-[Click here](EXAMPLE.MD) to see an example implementation of this HTTP server.
+[Click here](EXAMPLE.md) to see an example implementation of this HTTP server.
 
 # That's all
 
