@@ -117,10 +117,10 @@ This URL must return the current brightness of the lightbulb, **in plaintext** o
 It must be between `0` and `100`.
 
 Please note that **EVEN IF YOUR LIGHTBULB IS TURNED OFF**, this URL must return the last brightness of your lightbulb.  
-THis way, if you turn off your lightbulb from your iPhone using siri, the brightness value will be kept when you turn it on again.
+This way, if you turn off your lightbulb from your iPhone using siri, the brightness value will be kept when you turn it on again.
 
 
-##### 4.4] `set_brightness_url
+##### 4.4] `set_brightness_url`
 
 This URL must change the lightbulb brightness.  
 (That's the part you've done with your Raspberry Pi or Arduino)  
