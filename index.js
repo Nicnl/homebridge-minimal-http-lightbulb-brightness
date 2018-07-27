@@ -18,6 +18,9 @@ function MinimalisticHttpLightbulbBrightness(log, config) {
     this.get_brightness_url = config.get_brightness_url;
     this.set_brightness_url  = config.set_brightness_url;
 
+    // Optional parameters: lightbulb properties
+    this.is_dimmable = config.is_dimmable != "false";
+
     // Optional parameters: HTTP methods
     this.get_on_off_method = config.get_on_off_method || 'GET';
     this.set_on_off_method  = config.set_on_off_method  || 'POST';
@@ -44,7 +47,9 @@ function MinimalisticHttpLightbulbBrightness(log, config) {
     this.get_brightness_callbacks = [];
 
     // Initializing things
-    this.start_brightness_polling();
+    if (this.is_dimmable) {
+        this.start_brightness_polling();
+    }
     this.start_on_off_polling();
     this.init_service();
 }
@@ -57,10 +62,12 @@ MinimalisticHttpLightbulbBrightness.prototype.init_service = function() {
     }.bind(this));
     this.service.getCharacteristic(Characteristic.On).on('set', this.set_on_off.bind(this));
 
-    this.service.getCharacteristic(Characteristic.Brightness).on('get', function(callback) {
-        this.get_brightness_callbacks.push(callback);
-    }.bind(this));
-    this.service.getCharacteristic(Characteristic.Brightness).on('set', this.set_brightness.bind(this));
+    if (this.is_dimmable) {
+        this.service.getCharacteristic(Characteristic.Brightness).on('get', function(callback) {
+	        this.get_brightness_callbacks.push(callback);
+	    }.bind(this));
+	    this.service.getCharacteristic(Characteristic.Brightness).on('set', this.set_brightness.bind(this));
+    }
 };
 
 MinimalisticHttpLightbulbBrightness.prototype.start_on_off_polling = function() {
