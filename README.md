@@ -58,7 +58,7 @@ Here is an homebridge's `config.json` with the minimal valid configuration:
 ````
 
 Beware, I'm a lazy ass!  
-These three parameters are not checked!  
+These four parameters are not checked!  
 (`get_brightness_url`, `set_brightness_url`, `get_on_off_url`, `set_on_off_url`)  
 If you forgot to write them in your accessory, the module will crash.
 
@@ -74,6 +74,8 @@ Here are them all with their default values.
 
 ````
 {
+    "is_dimmable": "true"
+
     "get_on_off_expected_response_code": "GET",
     "set_on_off_expected_response_code": "POST",
     "get_brightness_expected_response_code": "GET",
